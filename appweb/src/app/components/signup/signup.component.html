@@ -1,0 +1,87 @@
+<main>
+    <div class="container">
+        <div class="abs-center">
+            <div class="form">
+                <h1 class="text-center">madridcultural.com</h1>
+                <form class="p-3 border" [formGroup]="form">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control"
+                                    [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched"
+                                    formControlName="email" required>
+                                <span class="error" [class.error-show]="form.get('email')?.invalid && form.get('email')?.touched">El
+                                    email no es correcto</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group mb-2">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control"
+                                    [class.is-invalid]="form.get('password')?.invalid && form.get('password')?.touched"
+                                    formControlName="password" required>
+                                <span class="error"
+                                    [class.error-show]="form.get('password')?.invalid && form.get('password')?.touched">El password
+                                    es requerido</span>
+                            </div>
+                        </div>               
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="name" name="name" id="name" class="form-control"
+                                    [class.is-invalid]="form.get('name')?.invalid && form.get('name')?.touched"
+                                    formControlName="name" required>
+                                <span class="error" [class.error-show]="form.get('name')?.invalid && form.get('name')?.touched">El
+                                    nombre no es correcto</span>
+                            </div>
+                        </div>                
+                        <div class="col-7">
+                            <div class="form-group">
+                                <label for="surnames">Apellidos</label>
+                                <input type="surnames" name="surnames" id="surnames" class="form-control"
+                                    [class.is-invalid]="form.get('surnames')?.invalid && form.get('surnames')?.touched"
+                                    formControlName="surnames" required>
+                                <span class="error"
+                                    [class.error-show]="form.get('surnames')?.invalid && form.get('surnames')?.touched">Los
+                                    apellidos
+                                    no son correctos</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group mb-4">
+                                <label for="address">Direccion</label>
+                                <input type="address" name="address" class="form-control" formControlName="address">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group mb-4">
+                                <label for="birthdate">Fecha nacimiento</label>
+                                <input type="date" name="birthdate"class="form-control" formControlName="birthdate">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group mb-4">
+                                <label for="genre">Sexo</label>
+                                <select class="form-select" aria-label="genreSelect" formControlName="genre">
+                                    <option value="F">Femenino</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="O">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mt-2">
+                                <button class="btn btn-primary w-100" (click)="registerUser()"
+                                [disabled]="form.get('name')?.invalid || form.get('surnames')?.invalid || form.get('email')?.invalid || form.get('password')?.invalid">Registrar usuario</button>
+                            </div>                        
+                        </div>
+                    </div>                
+                </form>
+                <div class="bg-success text-white p-3 mt-4 valid" [class.invalid]="userCreated">El usuario ha sido creado con éxito.<span routerLink="/login"><br /><br /><strong>Haz click aquí para ir al login</strong></span></div>
+            </div>
+        </div>
+    </div>
+</main>

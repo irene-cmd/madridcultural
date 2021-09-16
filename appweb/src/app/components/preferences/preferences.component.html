@@ -1,0 +1,35 @@
+<app-topbar></app-topbar>
+
+<main class="pt-2 pb-4">
+    <div class="container">
+        <h1>{{ preferenceName | uppercase }}</h1>
+        <div *ngIf="events && events.length === 0">
+            <h3>En estos momentos, no hay eventos en la categoría</h3>
+        </div>
+        <div *ngIf="events && events.length > 0">            
+            <div class="row">
+                <div class="col-12 col-lg-4" *ngFor="let event of events">
+                    <div [routerLink]="['/events/', event.id]">
+                        <div class="card my-4">
+                            <img class="card-img-top" src="{{event.imagen ? event.imagen : 'assets/imagenes/icono.png'}}" alt="Logo">
+                            <div class="card-body">                            
+                                <h1>{{ event.nombre }}</h1>
+                                <div class="row mb-2">
+                                    <div class="col-6">
+                                        <span><strong>Lugar: </strong>{{ event.lugar }}</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span><strong>Fecha: </strong> {{ event.fecha | date: 'dd/MM/YYYY HH:mm' }}h</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">{{ event.descripcion }}</p>
+                            </div>
+                          </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<app-footer></app-footer>

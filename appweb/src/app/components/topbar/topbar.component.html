@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="navbar-brand" routerLink="/">madridcultural.com</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+      aria-controls="navbarToggler" aria-label="Toggle navigation"  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <span class="nav-link" aria-current="page" routerLink="/">Inicio</span>
+        </li>
+        <li class="nav-item dropdown">
+          <div ngbDropdown class="d-inline-block">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categorías
+            </a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <div *ngFor="let preference of preferences">
+                <div ngbDropdownItem [routerLink]="['/preferences/', preference.id]">{{ preference.nombre }}</div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li *ngIf="user">
+          <form class="d-flex">
+            <span class="btn btn-outline-primary" routerLink="/create-event">Crear Evento</span>
+          </form>
+        </li>
+      </ul>
+      <div class="not-login-container" *ngIf="!user">
+        <form class="d-flex">
+          <span class="btn btn-outline-light me-2 grey-text" routerLink="/login">Login</span>
+          <span class="btn btn-outline-primary" routerLink="/signup">Registro</span>
+        </form>
+      </div>
+      <div class="login-container" *ngIf="user">
+        <span class="me-2">Bienvenido, {{ user?.nombre }}</span>
+        <span (click)="logout()"><i class="fas fa-power-off"></i></span>
+      </div>
+    </div>
+  </div>
+</nav>

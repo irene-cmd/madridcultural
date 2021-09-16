@@ -1,0 +1,26 @@
+main{
+    background-color: cadetblue;
+}
+
+form{
+    background-color: #FFF;
+}
+
+.card{
+    cursor: pointer;
+    transition: transform .2s;
+    height: 400px;
+}
+    .card:hover{
+        transform: scale(1.05);
+    }    
+.card img{
+    width: 100%;
+}
+.card-body{
+    height: 100px;
+}
+.card-text{
+    height: 60px;
+    overflow: hidden;
+}

@@ -1,0 +1,29 @@
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .form {
+    margin-top: -200px;
+    width: 350px;
+  }
+
+  span.error{
+      color: #dc3545;
+      font-size: 12px;
+      visibility: hidden;
+  }
+
+  span.error-show{
+      visibility: visible;
+  }
+
+  div.valid{
+    visibility: hidden;
+  }
+
+  div.invalid{
+    visibility: visible;
+  }

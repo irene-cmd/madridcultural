@@ -1,0 +1,80 @@
+<app-topbar></app-topbar>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="offset-3 col-6">
+            <h1>Crear Evento</h1>
+            <div class="form mt-4">
+                <form class="p-3 border" [formGroup]="form">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" name="name" id="name" class="form-control"
+                                    [class.is-invalid]="form.get('name')?.invalid && form.get('name')?.touched"
+                                    formControlName="name" required>
+                                <span class="error" [class.error-show]="form.get('name')?.invalid && form.get('name')?.touched">El nombre es requerido</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group mb-2">
+                                <label for="place">Lugar</label>
+                                <input type="place" name="place" id="place" class="form-control"
+                                    [class.is-invalid]="form.get('place')?.invalid && form.get('place')?.touched"
+                                    formControlName="place" required>
+                                <span class="error"
+                                    [class.error-show]="form.get('place')?.invalid && form.get('place')?.touched">El lugar es requerido</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group mb-4">
+                                <label for="date">Fecha</label>
+                                <input type="date" name="date"class="form-control" formControlName="date"
+                                [class.is-invalid]="form.get('date')?.invalid && form.get('date')?.touched"
+                                    formControlName="date" required>
+                                <span class="error"
+                                    [class.error-show]="form.get('date')?.invalid && form.get('date')?.touched">La fecha es requerida</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group mb-4">
+                                <label for="hour">Hora</label>
+                                <input type="time" name="hour" class="form-control" formControlName="hour"
+                                [class.is-invalid]="form.get('hour')?.invalid && form.get('hour')?.touched"
+                                    formControlName="hour" required>
+                                <span class="error"
+                                    [class.error-show]="form.get('hour')?.invalid && form.get('hour')?.touched">La hora es requerida</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group mb-4">
+                                <label for="preference">Categoría</label>
+                                <select class="form-select" formControlName="preference">
+                                    <option *ngFor="let preference of preferences" value="{{ preference.id }}">{{ preference.nombre }}</option>
+                                    <option>Música</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group mb-4">
+                                <label for="description">Descripción</label>
+                                <textarea name="description" class="form-control" formControlName="description"></textarea>                                
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mt-2">
+                                <button class="btn btn-primary w-100" (click)="createEvent()"
+                                [disabled]="form.get('name')?.invalid || form.get('place')?.invalid || form.get('date')?.invalid || form.get('hour')?.invalid || eventCreated">Registrar evento</button>
+                            </div>                        
+                        </div>
+                    </div>                
+                </form>            
+                <div class="bg-success text-white p-3 mt-4 valid mb-4" [class.invalid]="eventCreated">El evento ha sido creado con éxito.<span routerLink="/login"><br /><br /><strong>Haz click aquí para ir al login</strong></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

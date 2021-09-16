@@ -1,0 +1,14 @@
+main{
+    background-color: cadetblue;
+}
+
+.card{
+    cursor: pointer;
+}
+.card img{
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+}

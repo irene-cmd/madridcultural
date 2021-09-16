@@ -1,0 +1,17 @@
+span.error{
+    color: #dc3545;
+    font-size: 12px;
+    visibility: hidden;
+}
+  
+span.error-show{
+    visibility: visible;
+}
+  
+div.valid{
+    visibility: hidden;
+}
+  
+div.invalid{
+    visibility: visible;
+}

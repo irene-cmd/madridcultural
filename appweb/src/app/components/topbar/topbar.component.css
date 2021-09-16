@@ -1,0 +1,20 @@
+.nav-link{
+    cursor: pointer;
+}
+
+.dropdown-item{
+    cursor: pointer;
+}
+
+.grey-text{
+    color: #202020;
+}
+
+.grey-text:hover{
+    background-color: #202020;
+    color: #FFF;
+}
+
+.login-container span{
+    cursor: pointer;
+}

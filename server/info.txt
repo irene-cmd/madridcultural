@@ -1,0 +1,38 @@
+// API -> Access Point Interface
+// Interfaz de acceso. Colección de Endpoints
+
+// ENDPOINT
+// Cada una de las direccion HTTP a través de las cuales se permite realizar una operación concreta
+
+// Acciones CRUD
+// Create, Read, Update, Delete
+
+// VERBOS
+// GET    -> Read
+// PUT    -> Create
+// PATCH  -> Update
+// DELETE -> Delete
+// ----------------------
+// POST   -> Read, Create
+
+// API REST
+
+// Tabla Usuarios, Eventos y Preferencias
+
+// Leer todos los usuarios. Ya hecho
+// leer un usuario concreto (id = 1)Cannot get usuarios/1. No aparece nada. Si pongo 3 solo me aparece el id. LA TABLA ME EMPIEZA CON ID 3
+// insertar un usuario
+// borrar un usuario (id = 1)
+// actualizar un usuario (id = 1)
+
+// Leer todos los eventos.
+// leer un evento concreto
+// insertar nuevo evento
+// borrar un evento (id = 1)
+// actualizar un evento (id = 1)
+
+// leer todos las preferencias.
+// leer una preferencia concreta
+// insertar nueva preferencia
+// borrar una preferencia (id = 1)
+// actualizar una preferencia (id = 1)
