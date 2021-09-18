@@ -36,3 +36,4 @@ Proyecto: BBDD + Backend (node.js) + Frontend (Angular) de Irene Alarcón
 # versions
 
 v1.0.0 - Version demo
+v1.0.0 - Version demo BBDD
