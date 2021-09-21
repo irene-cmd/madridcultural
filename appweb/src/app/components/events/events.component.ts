@@ -20,6 +20,7 @@ export class EventsComponent implements OnInit {
   ownerName: string | undefined;
   ownerId: number | undefined;
   isSubscriber: boolean = false;
+  user: boolean = false;
 
   constructor(
     private eventsService: EventsService,
@@ -31,37 +32,40 @@ export class EventsComponent implements OnInit {
       this.id! = val.id;
       this.getEvent();
       this.getAllSubscribers();
+      if (localStorage.getItem('nombre')) {
+        this.user = true;
+      }
     });
   }
 
-  async getEvent(){
+  async getEvent() {
     let response: Response = await this.eventsService.getEvent(this.id!);
-    if(response.responseCode === 1){
+    if (response.responseCode === 1) {
       this.message = response.responseMessage;
       this.events = response.response;
     }
   }
 
-  async getAllSubscribers(){
+  async getAllSubscribers() {
     let response: Response = await this.eventsService.getAllSubscribersToAnEvent(this.id!);
-    if(response.responseCode === 1){
+    if (response.responseCode === 1) {
       this.subscribers = response.response;
       this.subscribersCount = this.subscribers.length;
       this.subscribers.forEach(subscriber => {
         console.log(subscriber);
-        if(subscriber.esPropietario){
+        if (subscriber.esPropietario) {
           this.ownerName = subscriber.nombre + ' ' + subscriber.apellidos;
         }
-        if(subscriber.id === parseInt(localStorage.getItem('id')!)){
+        if (subscriber.id === parseInt(localStorage.getItem('id')!)) {
           this.isSubscriber = true;
         }
       });
     }
   }
 
-  async registerUserToEvent(){
+  async registerUserToEvent() {
     let response: Response = await this.eventsService.insertNewSubscriberToAnEvent(parseInt(localStorage.getItem('id')!), this.id!);
-    if(response.responseCode === 1){
+    if (response.responseCode === 1) {
       this.message = response.responseMessage;
       this.isSubscriber = true;
       this.subscribersCount += 1;

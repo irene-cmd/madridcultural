@@ -20,12 +20,13 @@ export class TopbarComponent implements OnInit {
   preferences: Array<Preference> | undefined;
 
   constructor(
-    private preferencesService: PreferencesService
+    private preferencesService: PreferencesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
 
-    if(localStorage.getItem('nombre')){
+    if (localStorage.getItem('nombre')) {
       this.user = {
         id: parseInt(localStorage.getItem('nombre')!),
         nombre: localStorage.getItem('nombre')!,
@@ -40,16 +41,16 @@ export class TopbarComponent implements OnInit {
 
   }
 
-  async getAllPreferences(){
+  async getAllPreferences() {
     let response: Response = await this.preferencesService.getAllPreferences();
-    if(response.responseCode === 1){
+    if (response.responseCode === 1) {
       this.message = response.responseMessage;
       this.preferences = response.response;
     }
   }
 
-  logout(){
-    
+  logout() {
+
     localStorage.removeItem('id');
     localStorage.removeItem('nombre');
     localStorage.removeItem('apellidos');
@@ -59,6 +60,7 @@ export class TopbarComponent implements OnInit {
 
     this.user = undefined;
 
+    this.router.navigate(['']);
   }
 
 }

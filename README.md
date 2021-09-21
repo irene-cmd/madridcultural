@@ -37,3 +37,4 @@ Proyecto: BBDD + Backend (node.js) + Frontend (Angular) de Irene Alarcón
 
 v1.0.0 - Version demo
 v1.0.0 - Version demo BBDD
+v1.1.0 - Version boton inscripcion BBDD
